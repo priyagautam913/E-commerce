@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+:root {
+  --base: 1rem;
+  --ratio: 1.333;
+  /* type scale steps*/
+  --step-h6: calc(var(--base) * var(--ratio));
+  --step-h5: calc(var(--step-h6) * var(--ratio));
+  --step-h4: calc(var(--step-h5) * var(--ratio));
+  --step-h3: calc(var(--step-h4) * var(--ratio));
+  --step-h2: calc(var(--step-h3) * var(--ratio));
+  --step-h1: calc(var(--step-h2) * var(--ratio));
+}
+
+@theme {
+  --font-heading: "Boska", serif;
+  --font-body: "Clash Display", sans-serif;
+  --text-base: var(--base);
+  --text-h6: var(--step-h6);
+  --text-h5: var(--step-h5);
+  --text-h4: var(--step-h4);
+  --text-h3: var(--step-h3);
+  --text-h2: var(--step-h2);
+  --text-h1: var(--step-h1);
+
+  --animate-marquee: marquee 25s linear infinite;
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+@layer base {
+  body {
+    font-family: var(--font-body);
+    background-color: var(--bg);
+    color: var(--text);
+  }
+
+  h1 {
+    font-family: var(--font-heading);
+    line-height: 0.95;
+    font-size: var(--text-h1);
+  }
+  h2 {
+    font-family: var(--font-heading);
+    font-size: var(--text-h2);
+  }
+  h3 {
+    font-family: var(--font-heading);
+    font-size: var(--text-h3);
+  }
+  h4 {
+    font-family: var(--font-heading);
+    font-size: var(--text-h4);
+  }
+  h5 {
+    font-family: var(--font-heading);
+    font-size: var(--text-h5);
+  }
+  h6 {
+    font-family: var(--font-heading);
+    font-size: var(--text-h6);
+  }
+}
